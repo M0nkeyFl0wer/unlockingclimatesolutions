@@ -1,0 +1,331 @@
+/* Centralized Navigation Styles for Unlocking Climate Solutions */
+/* This maintains the exact look and feel of the original Thrive navigation */
+
+/* Base Navigation Styles */
+.thrv_widget_menu {
+    position: relative;
+    z-index: 10;
+}
+
+.thrv_widget_menu .fixed-menu-item {
+    position: fixed !important;
+}
+
+.thrv_widget_menu.thrv_wrapper {
+    overflow: visible !important;
+}
+
+.thrv_widget_menu .tve-ham-wrap {
+    z-index: 999 !important;
+}
+
+/* Menu Container Styles */
+.thrv_widget_menu ul.tve_w_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.thrv_widget_menu ul.tve_w_menu.tve_horizontal {
+    display: flex;
+}
+
+/* Menu Items */
+.thrv_widget_menu ul.tve_w_menu > li {
+    flex: 0 1 auto;
+    cursor: pointer;
+    position: relative;
+}
+
+.thrv_widget_menu ul.tve_w_menu li > a:not(.tcb-logo) {
+    font-size: 16px;
+    line-height: 2em;
+    box-shadow: none;
+    letter-spacing: initial;
+    color: inherit !important;
+    text-decoration: inherit !important;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.thrv_widget_menu ul.tve_w_menu li > a:focus {
+    outline: none;
+}
+
+/* Dropdown Styles */
+.thrv_widget_menu .sub-menu {
+    box-shadow: rgba(0,0,0,0.15) 0px 0px 9px 1px;
+    background-color: rgb(255,255,255);
+    visibility: hidden;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    z-index: 1000;
+}
+
+.thrv_widget_menu ul.tve_w_menu.tve_horizontal li:hover > .sub-menu,
+.thrv_widget_menu ul.tve_w_menu.tve_horizontal li.expand-children > .sub-menu {
+    visibility: visible;
+    display: block;
+}
+
+.thrv_widget_menu .sub-menu li {
+    padding: 0;
+    width: 100%;
+}
+
+.thrv_widget_menu .sub-menu li a {
+    padding: 10px 15px;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.thrv_widget_menu .sub-menu li a:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Dropdown Trigger Arrow */
+.tve-item-dropdown-trigger {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.tve-item-dropdown-trigger svg {
+    width: 1em;
+    height: 1em;
+    transition: transform 0.2s ease 0s;
+    fill: currentcolor;
+}
+
+.expand-children > a > .tve-item-dropdown-trigger {
+    transform: rotate(180deg);
+}
+
+/* Logo Styles */
+.tcb-hamburger-logo {
+    display: flex;
+    align-items: center;
+}
+
+.tcb-logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+/* Mobile Menu Styles */
+.tve-m-trigger {
+    display: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+}
+
+.tve-m-trigger:focus,
+.tve-m-trigger:active {
+    outline: none;
+}
+
+.tcb-icon-open,
+.tcb-icon-close {
+    font-size: 33px;
+    width: 33px;
+    height: 33px;
+    margin: 0 auto !important;
+    padding: 0.3em !important;
+}
+
+.tcb-icon {
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    fill: currentcolor;
+    stroke: currentcolor;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+    .tve-m-trigger {
+        display: block;
+        position: relative;
+    }
+    
+    .tve-ham-wrap {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(255, 255, 255);
+        z-index: 9999;
+        padding: 60px 20px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        transition: left 0.2s ease;
+    }
+    
+    .tve-ham-wrap.tve-m-expanded {
+        display: block;
+        left: 0;
+    }
+    
+    .tve-ham-wrap ul.tve_w_menu {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+    
+    .tve-ham-wrap ul.tve_w_menu li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .tve-ham-wrap ul.tve_w_menu li a {
+        padding: 15px 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .tve-ham-wrap .sub-menu {
+        position: relative;
+        display: none;
+        box-shadow: none;
+        background-color: rgb(250,250,250);
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    
+    .tve-ham-wrap .expand-children > .sub-menu {
+        display: block;
+    }
+    
+    .tve-ham-wrap .sub-menu li {
+        background-color: rgb(250,250,250);
+    }
+    
+    .tve-ham-wrap .sub-menu li a {
+        padding-left: 40px;
+    }
+    
+    .tcb-icon-close {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        background: rgba(255,255,255,0.9);
+        border-radius: 50%;
+        padding: 10px;
+    }
+}
+
+/* Tablet Responsive */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .thrv_widget_menu ul.tve_w_menu li > a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Layout Integration */
+.thrv_wrapper.thrv_widget_menu.thrv_wrapper {
+    padding: 0;
+    margin: 0;
+}
+
+/* Light Theme Template Styles */
+.tve-menu-template-light-tmp-first ul.tve_w_menu {
+    background-color: rgb(255,255,255);
+}
+
+.tve-menu-template-light-tmp-first .sub-menu {
+    box-shadow: rgba(0,0,0,0.15) 0px 0px 9px 1px;
+}
+
+.tve-menu-template-light-tmp-first .sub-menu li li {
+    background-color: rgb(250,250,250);
+    box-shadow: none;
+}
+
+/* Logo Split Layout */
+.tcb-logo-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.tcb-logo-split .tcb-hamburger-logo {
+    order: 1;
+}
+
+.tcb-logo-split .tve-ham-wrap {
+    order: 2;
+    display: flex;
+    gap: 20px;
+}
+
+.tcb-logo-split .tve-m-trigger {
+    order: 3;
+}
+
+@media (min-width: 768px) {
+    .tcb-logo-split .tve-ham-wrap {
+        display: flex;
+    }
+    
+    .tcb-logo-split .tve-m-trigger {
+        display: none;
+    }
+}
+
+/* Text Inner Styles */
+.tve-disabled-text-inner {
+    display: inline-block;
+}
+
+/* Menu Item States */
+.menu-item:hover {
+    background-color: rgba(0,0,0,0.02);
+}
+
+.menu-item.current-menu-item > a,
+.menu-item.current_page_item > a {
+    font-weight: bold;
+    color: var(--tcb-skin-color-0, #3b85f6) !important;
+}
+
+/* Smooth Transitions */
+.thrv_widget_menu * {
+    transition: all 0.2s ease;
+}
+
+/* Accessibility */
+.thrv_widget_menu a:focus {
+    outline: 2px solid var(--tcb-skin-color-0, #3b85f6);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .thrv_widget_menu .sub-menu {
+        border: 2px solid currentColor;
+    }
+    
+    .thrv_widget_menu .sub-menu li {
+        border-bottom: 1px solid currentColor;
+    }
+}

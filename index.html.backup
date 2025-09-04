@@ -264,10 +264,6 @@ var thrive_front_localize = {"comments_form":{"error_defaults":{"email":"Email a
             }
 		</style>
 
-	<!-- Centralized Navigation System -->
-	<link rel="stylesheet" href="navigation.css">
-	<script src="navigation.js"></script>
-
 	</head>
 		<body class="home wp-singular page-template-default page page-id-65 wp-theme-thrive-theme tve_lp"style="" data-css="tve-u-18d75e05280"> 				<div class="wrp cnt bSe" style="display: none">
 			<div class="awr"></div>
