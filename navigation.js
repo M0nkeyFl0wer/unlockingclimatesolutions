@@ -7,54 +7,49 @@ const NavigationConfig = {
     
     // Logo configuration
     logo: {
-        src: 'https://www.unlockingclimatesolutions.com/wp-content/uploads/2023/10/elephant_that_needed_cropping.png',
+        src: 'wp-content/uploads/2023/10/elephant_that_needed_cropping.png',
         alt: 'Unlocking Climate Solutions',
         href: 'index.html'
     },
     
-    // Main navigation menu items
-    menuItems: {
-        primary: {
-            useCases: {
-                label: 'Use cases',
-                href: '#',
-                hasDropdown: true,
-                submenu: [
-                    {
-                        label: 'Supply Chain',
-                        href: '#' // No file exists yet
-                    },
-                    {
-                        label: 'Renewable Energy', 
-                        href: '#' // No file exists yet
-                    },
-                    {
-                        label: 'Carbon Accounting',
-                        href: 'carbon-accounting.html'
-                    },
-                    {
-                        label: 'Monitoring Reporting Verification',
-                        href: 'monitoring-reporting-verification.html'
-                    }
-                ]
-            }
+    // Main navigation menu items - all in one horizontal menu
+    menuItems: [
+        {
+            label: 'Solutions',
+            href: '#',
+            hasDropdown: true,
+            submenu: [
+                {
+                    label: 'Carbon Accounting',
+                    href: 'carbon-accounting.html'
+                },
+                {
+                    label: 'Renewable Energy', 
+                    href: 'renewable-energy.html'
+                },
+                {
+                    label: 'Supply Chain',
+                    href: 'supply-chain.html'
+                },
+                {
+                    label: 'Monitoring Reporting Verification',
+                    href: 'monitoring-reporting-verification.html'
+                }
+            ]
         },
-        secondary: {
-            whyEthereum: {
-                label: 'Why Ethereum',
-                href: 'why-ethereum.html'
-            },
-            // Note: Events page is intentionally removed per user request
-            aboutUs: {
-                label: 'About Us',
-                href: '#' // No file exists yet
-            },
-            deepDive: {
-                label: 'Deep Dive', 
-                href: 'deepdive.html'
-            }
+        {
+            label: 'Why Ethereum',
+            href: 'why-ethereum.html'
+        },
+        {
+            label: 'About Us',
+            href: 'aboutus.html'
+        },
+        {
+            label: 'Deep Dive',
+            href: 'deepdive.html'
         }
-    }
+    ]
 };
 
 // Function to generate the complete navigation HTML
@@ -85,35 +80,28 @@ function generateNavigation() {
             </a>
             
             <div class="tve-ham-wrap">
-                <!-- Primary Menu (Use Cases Dropdown) -->
-                <ul id="m-primary" class="tve_w_menu tve_horizontal" data-iid="15">
-                    <li class="menu-item menu-item-7 menu-item-has-children lvl-0 tcb-- tve_editable" data-id="7">
-                        <a class="menu-item menu-item-7-a menu-item-7 tcb--" href="${NavigationConfig.menuItems.primary.useCases.href}">
-                            <span class="tve-disabled-text-inner">${NavigationConfig.menuItems.primary.useCases.label}</span>
+                <!-- Main Navigation Menu -->
+                <ul id="main-menu" class="tve_w_menu tve_horizontal" data-iid="15">
+                    ${NavigationConfig.menuItems.map((item, index) => `
+                    <li class="menu-item menu-item-${index + 1} ${item.hasDropdown ? 'menu-item-has-children' : ''} lvl-0 tcb-local-vars-root tve_editable" data-id="${index + 1}">
+                        <a class="menu-item-${index + 1}-a" href="${item.href}">
+                            <span class="tve-disabled-text-inner">${item.label}</span>
+                            ${item.hasDropdown ? `
                             <span class="tve-item-dropdown-trigger">
                                 <svg class="tcb-icon" viewBox="0 0 16 16">
                                     <path d="M8 11L3 6h10z"/>
                                 </svg>
-                            </span>
+                            </span>` : ''}
                         </a>
-                        <ul class="sub-menu menu-item-7-ul tve_editable">
-                            ${NavigationConfig.menuItems.primary.useCases.submenu.map((item, index) => `
-                            <li class="menu-item menu-item-${9 + index} lvl-1 tve_editable" data-id="${9 + index}">
-                                <a href="${item.href}">
-                                    <span class="tve-disabled-text-inner">${item.label}</span>
+                        ${item.hasDropdown ? `
+                        <ul class="sub-menu menu-item-${index + 1}-ul tve_editable">
+                            ${item.submenu.map((subItem, subIndex) => `
+                            <li class="menu-item menu-item-${index + 1}-${subIndex + 1} lvl-1 tve_editable" data-id="${index + 1}-${subIndex + 1}">
+                                <a href="${subItem.href}">
+                                    <span class="tve-disabled-text-inner">${subItem.label}</span>
                                 </a>
                             </li>`).join('')}
-                        </ul>
-                    </li>
-                </ul>
-                
-                <!-- Secondary Menu -->
-                <ul id="m-secondary" class="tve_w_menu tve_horizontal" data-iid="7">
-                    ${Object.values(NavigationConfig.menuItems.secondary).map((item, index) => `
-                    <li class="menu-item menu-item-${index + 1} lvl-0 tcb-local-vars-root tve_editable" data-id="${index + 1}">
-                        <a href="${item.href}">
-                            <span class="tve-disabled-text-inner">${item.label}</span>
-                        </a>
+                        </ul>` : ''}
                     </li>`).join('')}
                 </ul>
             </div>
@@ -134,48 +122,42 @@ function injectNavigation() {
 }
 
 function insertNavigationHTML() {
-    // Try multiple methods to find and replace the navigation
-    const selectors = [
-        '.thrv_widget_menu',  // Direct menu selector
-        '#thrive-header .thrv_widget_menu', // Header context
-        '.thrive-shortcode-html .thrv_widget_menu', // Shortcode context
-        'div[data-css*="178d4c6bb16"]', // Specific data-css attribute
-        '.tve-menu-template-light-tmp-first' // Theme class
-    ];
+    // For this specific site, we need to find the header container and inject our navigation
+    const headerContainer = document.getElementById('thrive-header');
     
-    let navReplaced = false;
-    
-    for (const selector of selectors) {
-        const existingNav = document.querySelector(selector);
-        if (existingNav && !navReplaced) {
-            // Create a temporary container to parse the new HTML
+    if (headerContainer) {
+        // Clear any existing navigation content
+        const existingNav = headerContainer.querySelector('.thrive-shortcode-html');
+        if (existingNav) {
+            // Replace the entire content
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = generateNavigation();
             const newNav = tempDiv.firstElementChild;
             
-            // Replace the existing navigation
-            existingNav.parentNode.replaceChild(newNav, existingNav);
-            navReplaced = true;
+            existingNav.innerHTML = '';
+            existingNav.appendChild(newNav);
             
             // Initialize mobile menu functionality
             initializeMobileMenu();
-            break;
-        }
-    }
-    
-    // If no navigation was found to replace, try to inject into header
-    if (!navReplaced) {
-        const headerContainer = document.getElementById('thrive-header') || 
-                               document.querySelector('.thrv_header') ||
-                               document.querySelector('.thrive-shortcode-html');
-        
-        if (headerContainer) {
+        } else {
+            // Create new navigation if none exists
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = generateNavigation();
             const newNav = tempDiv.firstElementChild;
             
-            // Prepend to header
-            headerContainer.insertBefore(newNav, headerContainer.firstChild);
+            headerContainer.innerHTML = '';
+            headerContainer.appendChild(newNav);
+            initializeMobileMenu();
+        }
+    } else {
+        // Fallback: inject at the very top of body
+        const body = document.body;
+        if (body) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = generateNavigation();
+            const newNav = tempDiv.firstElementChild;
+            
+            body.insertBefore(newNav, body.firstChild);
             initializeMobileMenu();
         }
     }
