@@ -97,26 +97,94 @@ class Slideshow {
 // Predefined slide collections for different presentations
 const SLIDE_COLLECTIONS = {
     'carbon-accounting': [
-        'wp-content/uploads/2023/11/1.jpg',
-        'wp-content/uploads/2023/11/2.jpg'
+        'wp-content/uploads/slideshows/carbon-accounting/1.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/2.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/3.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/4.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/5.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/6.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/7.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/8.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/9.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/10.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/11.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/12.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/13.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/14.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/15.jpg',
+        'wp-content/uploads/slideshows/carbon-accounting/16.jpg'
     ],
     'supply-chain': [
-        'wp-content/uploads/2023/11/4-1.jpg',
-        'wp-content/uploads/2023/11/5.jpg'
+        'wp-content/uploads/slideshows/supply-chain/1.jpg',
+        'wp-content/uploads/slideshows/supply-chain/2.jpg',
+        'wp-content/uploads/slideshows/supply-chain/3.jpg',
+        'wp-content/uploads/slideshows/supply-chain/4.jpg',
+        'wp-content/uploads/slideshows/supply-chain/5.jpg',
+        'wp-content/uploads/slideshows/supply-chain/6.jpg',
+        'wp-content/uploads/slideshows/supply-chain/7.jpg',
+        'wp-content/uploads/slideshows/supply-chain/8.jpg',
+        'wp-content/uploads/slideshows/supply-chain/9.jpg',
+        'wp-content/uploads/slideshows/supply-chain/10.jpg',
+        'wp-content/uploads/slideshows/supply-chain/11.jpg',
+        'wp-content/uploads/slideshows/supply-chain/12.jpg',
+        'wp-content/uploads/slideshows/supply-chain/13.jpg',
+        'wp-content/uploads/slideshows/supply-chain/14.jpg',
+        'wp-content/uploads/slideshows/supply-chain/15.jpg',
+        'wp-content/uploads/slideshows/supply-chain/16.jpg',
+        'wp-content/uploads/slideshows/supply-chain/17.jpg',
+        'wp-content/uploads/slideshows/supply-chain/18.jpg',
+        'wp-content/uploads/slideshows/supply-chain/19.jpg',
+        'wp-content/uploads/slideshows/supply-chain/20.jpg',
+        'wp-content/uploads/slideshows/supply-chain/21.jpg',
+        'wp-content/uploads/slideshows/supply-chain/22.jpg',
+        'wp-content/uploads/slideshows/supply-chain/23.jpg',
+        'wp-content/uploads/slideshows/supply-chain/24.jpg',
+        'wp-content/uploads/slideshows/supply-chain/25.jpg',
+        'wp-content/uploads/slideshows/supply-chain/26.jpg',
+        'wp-content/uploads/slideshows/supply-chain/27.jpg',
+        'wp-content/uploads/slideshows/supply-chain/28.jpg',
+        'wp-content/uploads/slideshows/supply-chain/29.jpg'
+    ],
+    'monitoring-reporting-verification': [
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/1.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/2.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/3.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/4.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/5.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/6.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/7.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/8.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/9.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/10.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/11.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/12.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/13.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/14.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/15.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/16.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/17.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/18.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/19.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/20.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/21.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/22.jpg',
+        'wp-content/uploads/slideshows/monitoring-reporting-verification/23.jpg'
+    ],
+    'deepdive': [
+        'wp-content/uploads/slideshows/deepdive/1.jpg',
+        'wp-content/uploads/slideshows/deepdive/2.jpg',
+        'wp-content/uploads/slideshows/deepdive/3.jpg',
+        'wp-content/uploads/slideshows/deepdive/4.jpg',
+        'wp-content/uploads/slideshows/deepdive/5.jpg',
+        'wp-content/uploads/slideshows/deepdive/6.jpg',
+        'wp-content/uploads/slideshows/deepdive/7.jpg',
+        'wp-content/uploads/slideshows/deepdive/8.jpg',
+        'wp-content/uploads/slideshows/deepdive/9.jpg'
     ],
     'renewable-energy': [
         'wp-content/uploads/2023/11/1.jpg',
         'wp-content/uploads/2023/11/2.jpg',
         'wp-content/uploads/2023/11/4-1.jpg'
-    ],
-    'monitoring': [
-        'wp-content/uploads/2023/11/5.jpg',
-        'wp-content/uploads/2023/11/1.jpg'
-    ],
-    'deepdive': [
-        'wp-content/uploads/2023/11/2.jpg',
-        'wp-content/uploads/2023/11/4-1.jpg',
-        'wp-content/uploads/2023/11/5.jpg'
     ]
 };
 

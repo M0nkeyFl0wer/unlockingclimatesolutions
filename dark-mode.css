@@ -329,15 +329,33 @@ select:focus {
     text-shadow: none !important;
 }
 
-/* Video backgrounds - keep hero video at full brightness */
-.tcb-video-background-el video {
+/* Video backgrounds - keep hero video at full brightness and visible */
+.tcb-video-background-el video,
+.tcb-bg-video {
     opacity: 1.0 !important;
     filter: none !important;
+    visibility: visible !important;
+    display: block !important;
+    z-index: -1 !important;
 }
 
-/* Hero section should maintain full color */
+/* Hero section should maintain full color and visibility */
 .tcb-video-background-parent .tcb-video-background-el,
 .tcb-video-background-parent .tve-page-section-out {
+    opacity: 1.0 !important;
+    filter: none !important;
+    visibility: visible !important;
+    display: block !important;
+    background-color: transparent !important;
+}
+
+/* Ensure the hero video container is visible */
+.tcb-video-background-parent {
+    background-color: transparent !important;
+}
+
+/* Make sure video elements are not hidden by dark mode */
+video {
     opacity: 1.0 !important;
     filter: none !important;
 }
