@@ -329,9 +329,17 @@ select:focus {
     text-shadow: none !important;
 }
 
-/* Video backgrounds */
+/* Video backgrounds - keep hero video at full brightness */
 .tcb-video-background-el video {
-    opacity: 0.3;
+    opacity: 1.0 !important;
+    filter: none !important;
+}
+
+/* Hero section should maintain full color */
+.tcb-video-background-parent .tcb-video-background-el,
+.tcb-video-background-parent .tve-page-section-out {
+    opacity: 1.0 !important;
+    filter: none !important;
 }
 
 /* Notification and toast messages */

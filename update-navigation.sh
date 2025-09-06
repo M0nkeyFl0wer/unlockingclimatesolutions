@@ -13,6 +13,9 @@ files=(
 
 # Navigation includes to add
 nav_includes='
+	<!-- Mobile Responsive Viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
 	<!-- Centralized Navigation System -->
 	<link rel="stylesheet" href="navigation.css">
 	<script src="navigation.js"></script>'
@@ -23,6 +26,9 @@ for file in "${files[@]}"; do
         
         # Create backup
         cp "$file" "$file.backup"
+        
+        # Remove any existing viewport meta tag first
+        sed -i '/<meta name="viewport"/d' "$file"
         
         # Find the </head> tag and insert navigation includes before it
         sed -i "s|</head>|$nav_includes\n\n</head>|g" "$file"
