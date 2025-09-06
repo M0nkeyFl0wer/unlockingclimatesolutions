@@ -173,6 +173,7 @@ function initializeMobileMenu() {
     if (trigger && hamWrap) {
         trigger.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             
             // Toggle mobile menu
             const isExpanded = hamWrap.classList.contains('tve-m-expanded');
@@ -182,11 +183,37 @@ function initializeMobileMenu() {
                 trigger.classList.remove('tve-triggered-icon');
                 openIcon.style.display = 'block';
                 closeIcon.style.display = 'none';
+                document.body.style.overflow = ''; // Re-enable scrolling
             } else {
                 hamWrap.classList.add('tve-m-expanded');
                 trigger.classList.add('tve-triggered-icon');
                 openIcon.style.display = 'none';
                 closeIcon.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent body scroll when menu is open
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (hamWrap.classList.contains('tve-m-expanded')) {
+                if (!hamWrap.contains(e.target) && !trigger.contains(e.target)) {
+                    hamWrap.classList.remove('tve-m-expanded');
+                    trigger.classList.remove('tve-triggered-icon');
+                    openIcon.style.display = 'block';
+                    closeIcon.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+        
+        // Handle ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && hamWrap.classList.contains('tve-m-expanded')) {
+                hamWrap.classList.remove('tve-m-expanded');
+                trigger.classList.remove('tve-triggered-icon');
+                openIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+                document.body.style.overflow = '';
             }
         });
     }
