@@ -1,0 +1,325 @@
+/* 📱 MOBILE-FIRST ENHANCEMENTS */
+/* Advanced responsive design for modern mobile experience */
+
+/* Mobile-First Base Styles */
+@media screen and (max-width: 768px) {
+    
+    /* Enhanced Typography for Mobile */
+    h1 {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: var(--space-lg) !important;
+    }
+    
+    h2 {
+        font-size: clamp(1.5rem, 6vw, 2.25rem) !important;
+        line-height: 1.2 !important;
+    }
+    
+    h3 {
+        font-size: clamp(1.25rem, 5vw, 1.875rem) !important;
+    }
+    
+    /* Mobile Content Spacing */
+    .thrv_wrapper,
+    .thrv-page-section {
+        padding: var(--space-lg) var(--space-md) !important;
+    }
+    
+    .thrv-content-box,
+    .tve-content-box-background {
+        padding: var(--space-lg) !important;
+        margin: var(--space-lg) 0 !important;
+        border-radius: var(--radius-lg) !important;
+    }
+    
+    /* Mobile Hero Optimizations */
+    .tcb-video-background-el {
+        border-radius: 0 !important;
+        margin: 0 -var(--space-md) !important;
+    }
+    
+    /* Enhanced Mobile Forms */
+    .secure-email-form,
+    .modern-email-form {
+        padding: var(--space-lg) !important;
+        margin: var(--space-lg) -var(--space-sm) !important;
+        border-radius: var(--radius-lg) !important;
+    }
+    
+    .form-group {
+        flex-direction: column !important;
+        gap: var(--space-sm) !important;
+    }
+    
+    .modern-input,
+    .secure-email-form input[type="email"] {
+        width: 100% !important;
+        min-width: 100% !important;
+        padding: var(--space-md) var(--space-lg) !important;
+        font-size: var(--text-lg) !important;
+        border-radius: var(--radius-md) !important;
+    }
+    
+    .modern-submit-btn,
+    .secure-email-form button {
+        width: 100% !important;
+        padding: var(--space-lg) !important;
+        font-size: var(--text-lg) !important;
+        border-radius: var(--radius-md) !important;
+    }
+    
+    /* Mobile Images */
+    .tve_image_caption,
+    .tve_image {
+        margin: var(--space-md) -var(--space-sm) !important;
+        border-radius: var(--radius-lg) !important;
+    }
+    
+    /* Mobile Navigation Enhancements */
+    .thrv_widget_menu {
+        margin: var(--space-sm) !important;
+        padding: var(--space-sm) var(--space-md) !important;
+        border-radius: var(--radius-lg) !important;
+        backdrop-filter: blur(15px) !important;
+    }
+    
+    .tcb-logo img {
+        max-height: 35px !important;
+    }
+    
+    /* Mobile Menu Improvements */
+    .tve-ham-wrap {
+        padding-top: 70px !important;
+    }
+    
+    .tve-ham-wrap ul.tve_w_menu li a {
+        padding: var(--space-lg) !important;
+        font-size: var(--text-xl) !important;
+        border-radius: var(--radius-md) !important;
+        margin-bottom: var(--space-sm) !important;
+    }
+    
+    /* Mobile Slideshow */
+    .slideshow-container {
+        margin: var(--space-lg) -var(--space-sm) !important;
+        padding: var(--space-lg) var(--space-sm) !important;
+        border-radius: var(--radius-lg) !important;
+    }
+    
+    /* Touch-Friendly Interactive Elements */
+    a, button, .tcb-button-link {
+        min-height: 44px !important; /* iOS recommendation */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Mobile Parallax Optimizations */
+    .tcb-video-background-el::before {
+        animation-duration: 12s !important;
+    }
+    
+    .tcb-video-background-el::after {
+        animation-duration: 6s !important;
+        bottom: 10px !important;
+        right: 10px !important;
+        width: 35px !important;
+        height: 35px !important;
+    }
+}
+
+/* Tablet Optimizations */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    
+    .thrv_wrapper,
+    .thrv-page-section {
+        padding: var(--space-2xl) var(--space-lg) !important;
+    }
+    
+    h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem) !important;
+    }
+    
+    .form-group {
+        max-width: 600px;
+        margin: 0 auto var(--space-lg) auto;
+    }
+}
+
+/* Large Mobile (Phablets) */
+@media screen and (min-width: 414px) and (max-width: 768px) {
+    
+    .secure-email-form,
+    .modern-email-form {
+        margin: var(--space-lg) 0 !important;
+    }
+    
+    .form-group {
+        flex-direction: row !important;
+    }
+    
+    .modern-input,
+    .secure-email-form input[type="email"] {
+        flex: 2 !important;
+    }
+    
+    .modern-submit-btn,
+    .secure-email-form button {
+        flex: 1 !important;
+        min-width: 120px !important;
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 414px) {
+    
+    :root {
+        --space-xl: 1.25rem;
+        --space-2xl: 1.75rem;
+    }
+    
+    .thrv_wrapper,
+    .thrv-page-section {
+        padding: var(--space-lg) var(--space-sm) !important;
+    }
+    
+    h1 {
+        font-size: var(--text-3xl) !important;
+        margin-bottom: var(--space-md) !important;
+    }
+    
+    .secure-email-form,
+    .modern-email-form {
+        margin: var(--space-md) -var(--space-xs) !important;
+        padding: var(--space-md) !important;
+    }
+}
+
+/* High DPI Displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi),
+       screen and (min-resolution: 2dppx) {
+    
+    /* Crisp borders on retina displays */
+    .thrv-content-box,
+    .secure-email-form,
+    .modern-input {
+        border-width: 0.5px !important;
+    }
+    
+    /* Sharper text rendering */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Landscape Mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    
+    .thrv_wrapper,
+    .thrv-page-section {
+        padding: var(--space-md) var(--space-xl) !important;
+    }
+    
+    h1 {
+        font-size: var(--text-3xl) !important;
+        margin-bottom: var(--space-sm) !important;
+    }
+    
+    .tcb-video-background-el::after {
+        bottom: 5px !important;
+        right: 5px !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+/* Enhanced Touch Interactions */
+@media (hover: none) and (pointer: coarse) {
+    
+    /* Remove hover effects on touch devices */
+    .thrv-content-box:hover,
+    .tve_image_caption:hover {
+        transform: none !important;
+        box-shadow: var(--shadow-lg) !important;
+    }
+    
+    /* Enhance tap targets */
+    a, button {
+        padding: var(--space-sm) var(--space-md) !important;
+    }
+    
+    /* Add touch feedback */
+    .tcb-button-link:active,
+    .modern-submit-btn:active,
+    .secure-email-form button:active {
+        transform: scale(0.98) !important;
+        background: var(--accent-secondary) !important;
+    }
+}
+
+/* Dark Mode Improvements for Mobile */
+@media screen and (max-width: 768px) {
+    
+    /* Improve contrast for mobile */
+    :root {
+        --text-primary: #ffffff;
+        --text-secondary: #f4f4f5;
+        --bg-glass: rgba(20, 20, 20, 0.9);
+    }
+    
+    /* Better mobile shadows */
+    .thrv-content-box,
+    .secure-email-form {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    
+    .tcb-video-background-el::before,
+    .tcb-video-background-el::after,
+    .hero-title {
+        animation: none !important;
+    }
+    
+    .thrv_wrapper {
+        animation: none !important;
+    }
+    
+    * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    
+    .tcb-video-background-el,
+    .thrv_widget_menu,
+    .secure-email-form,
+    .modern-email-form {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: black !important;
+        page-break-after: avoid;
+    }
+    
+    .thrv-content-box {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+}

@@ -1,0 +1,87 @@
+/* Fix for background-image containers that have zero height or are hidden */
+
+/* Force minimum height for containers with background images */
+[style*="background-image"] {
+    min-height: 400px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Specific fixes for common background image patterns */
+.tcb-styled-list-item[style*="background-image"],
+.tve_p_center[style*="background-image"],
+div[style*="background-image"] {
+    min-height: 500px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    opacity: 1 !important;
+}
+
+/* Force visibility of all image containers */
+.tve_image_caption,
+.tve_image_frame,
+.tve_image {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Ensure regular images are visible */
+img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Ensure slideshow containers are visible */
+.slideshow-container,
+.slideshow-slide {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    min-height: 400px !important;
+}
+
+/* Fix for hidden overflow that might clip images */
+body, html {
+    overflow-x: visible !important;
+}
+
+/* Ensure all image containers have proper dimensions */
+.tcb-post-content [style*="background-image"] {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 250px !important;
+}
+
+/* Fix mobile navigation visibility - prevent black on black text */
+@media (max-width: 767px) {
+    /* Mobile menu text should be visible */
+    .thrv_widget_menu ul.tve_w_menu li a {
+        color: #ffffff !important;
+        background-color: rgba(0, 0, 0, 0.8) !important;
+    }
+    
+    /* Hamburger menu button visibility */
+    .tve-m-trigger {
+        color: #ffffff !important;
+        background-color: rgba(0, 0, 0, 0.8) !important;
+        padding: 10px !important;
+        border-radius: 5px !important;
+    }
+    
+    /* Mobile menu container */
+    .thrv_widget_menu[class*="tve-custom-menu-switch-icon-"] ul.tve_w_menu {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+    
+    /* Mobile menu items hover */
+    .thrv_widget_menu ul.tve_w_menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
+    }
+}
