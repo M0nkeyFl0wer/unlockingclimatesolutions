@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en-US" >
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+				<script type="text/javascript">
+			window.flatStyles = window.flatStyles || ''
+
+			window.lightspeedOptimizeStylesheet = function () {
+				const currentStylesheet = document.querySelector( '.tcb-lightspeed-style:not([data-ls-optimized])' )
+
+				if ( currentStylesheet ) {
+					try {
+						if ( currentStylesheet.sheet && currentStylesheet.sheet.cssRules ) {
+							if ( window.flatStyles ) {
+								if ( this.optimizing ) {
+									setTimeout( window.lightspeedOptimizeStylesheet.bind( this ), 24 )
+								} else {
+									this.optimizing = true;
+
+									let rulesIndex = 0;
+
+									while ( rulesIndex < currentStylesheet.sheet.cssRules.length ) {
+										const rule = currentStylesheet.sheet.cssRules[ rulesIndex ]
+										/* remove rules that already exist in the page */
+										if ( rule.type === CSSRule.STYLE_RULE && window.flatStyles.includes( `${rule.selectorText}{` ) ) {
+											currentStylesheet.sheet.deleteRule( rulesIndex )
+										} else {
+											rulesIndex ++
+										}
+									}
+									/* optimize, mark it such, move to the next file, append the styles we have until now */
+									currentStylesheet.setAttribute( 'data-ls-optimized', '1' )
+
+									window.flatStyles += currentStylesheet.innerHTML
+
+									this.optimizing = false
+								}
+							} else {
+								window.flatStyles = currentStylesheet.innerHTML
+								currentStylesheet.setAttribute( 'data-ls-optimized', '1' )
+							}
+						}
+					} catch ( error ) {
+						console.warn( error )
+					}
+
+					if ( currentStylesheet.parentElement.tagName !== 'HEAD' ) {
+						/* always make sure that those styles end up in the head */
+						const stylesheetID = currentStylesheet.id;
+						/**
+						 * make sure that there is only one copy of the css
+						 * e.g display CSS
+						 */
+						if ( ( ! stylesheetID || ( stylesheetID && ! document.querySelector( `head #${stylesheetID}` ) ) ) ) {
+							document.head.prepend( currentStylesheet )
+						} else {
+							currentStylesheet.remove();
+						}
+					}
+				}
+			}
+
+			window.lightspeedOptimizeFlat = function ( styleSheetElement ) {
+				if ( document.querySelectorAll( 'link[href*="thrive_flat.css"]' ).length > 1 ) {
+					/* disable this flat if we already have one */
+					styleSheetElement.setAttribute( 'disabled', true )
+				} else {
+					/* if this is the first one, make sure he's in head */
+					if ( styleSheetElement.parentElement.tagName !== 'HEAD' ) {
+						document.head.append( styleSheetElement )
+					}
+				}
+			}
+		</script>
+		<title>Why Ethereum &#8211; Unlocking Climate Solutions</title>
+<style type="text/css" id="tcb-style-base-page-425"  onLoad="typeof window.lightspeedOptimizeStylesheet === 'function' && window.lightspeedOptimizeStylesheet()" class="tcb-lightspeed-style">#tve-lg-error-container{background-color: rgb(242,222,222);color: rgb(169,68,66);border: 1px solid rgb(235,204,209);border-radius: 1px;padding: 4px 10px;position: absolute;z-index: 3000000;box-sizing: border-box !important;}#tve-lg-error-container .tve-lg-err-item{line-height: 1.2;font-size: 14px;}#tve-lg-error-container .tve-lg-err-close{color: rgb(169,68,66);display: inline-block;font-size: 12px;width: 12px;height: 12px;position: absolute;top: 50%;right: 10px;margin: -6px 0px 0px;}#tve-lg-error-container .tve-lg-err-close:hover{text-decoration: none;}.thrv_wrapper.thrv_lead_generation{width: 100%;overflow: unset !important;}.thrv_wrapper.thrv_lead_generation .tve_lead_generated_inputs_container{color: rgb(85,85,85);--tcb-applied-color: #555;font-family: Roboto,sans-serif;}.thrv_wrapper.thrv_lead_generation .tve_lead_generated_inputs_container input[type="email"],.thrv_wrapper.thrv_lead_generation .tve_lead_generated_inputs_container input[type="text"]{padding: 10px 15px;height: auto;}.thrv_wrapper.thrv_lead_generation .tve_lead_generated_inputs_container input[type="email"]:hover,.thrv_wrapper.thrv_lead_generation .tve_lead_generated_inputs_container input[type="text"]:hover{border-color: rgb(183,216,209);}.thrv_wrapper.thrv_lead_generation .tve_lead_generated_inputs_container input::placeholder{font-family: inherit !important;}.thrv_wrapper.thrv_lead_generation{position: relative;box-sizing: border-box;}.thrv_wrapper.thrv_lead_generation::after{content: "";display: block;position: absolute;top: 0px;left: 0px;}.thrv_wrapper.thrv_lead_generation.tve-lead-generation-template .thrv_lead_generation_container .tve_lg_input_container.tve_lg_input{margin: 10px 0px;}.thrv_wrapper.thrv_lead_generation.tve-lead-generation-template .thrv_lead_generation_container .tve_lg_input_container.tve_lg_input > input{margin: 0px;}.thrv_wrapper.thrv_lead_generation.tve-lead-generation-template .thrv_lead_generation_container .tve_lg_input_container.tve_lg_textarea{margin: 10px 0px;}.thrv_wrapper.thrv_lead_generation.tve-lead-generation-template .thrv_lead_generation_container .tve_lg_input_container.tve_lg_textarea > textarea{margin: 0px;}.tve-lg-error{background-repeat: no-repeat;border-color: transparent !important;box-shadow: rgb(169,68,66) 0px 0px 4px inset !important;}.thrv_lead_generation_container .tve_lg_input_container.tve_lg_input{display: flex;}.thrv_lead_generation_container .tve_lg_input_container.tve_lg_input > input{flex: 1 1 0%;max-width: 100%;}.thrv_lead_generation_container input[type="password"],.thrv_lead_generation_container input[type="email"],.thrv_lead_generation_container input[type="url"],.thrv_lead_generation_container input[type="text"],.thrv_lead_generation_container input[type="tel"],.thrv_lead_generation_container button,.thrv_lead_generation_container select,.thrv_lead_generation_container textarea{border-style: solid;border-color: rgb(183,216,209);border-width: 1px;max-width: none;background-color: rgb(248,249,250);box-sizing: border-box !important;float: none !important;width: 100% !important;}.thrv_lead_generation_container input[type="password"]::placeholder,.thrv_lead_generation_container input[type="email"]::placeholder,.thrv_lead_generation_container input[type="url"]::placeholder,.thrv_lead_generation_container input[type="text"]::placeholder,.thrv_lead_generation_container input[type="tel"]::placeholder,.thrv_lead_generation_container button::placeholder,.thrv_lead_generation_container select::placeholder,.thrv_lead_generation_container textarea::placeholder{opacity: 0.7;color: inherit !important;}.thrv_lead_generation_container input:hover{background-color: rgb(255,255,255);border-color: rgb(26,188,156);}.thrv_lead_generation_container input[type="image"]{box-sizing: border-box;}.thrv_lead_generation_container select{height: auto;}.thrv_lead_generation_container input[type="password"],.thrv_lead_generation_container input[type="email"],.thrv_lead_generation_container input[type="text"],.thrv_lead_generation_container input[type="tel"],.thrv_lead_generation_container input[type="url"]{outline: none;padding: 5px;}.thrv_lead_generation_container button{border-width: 0px;color: rgb(255,255,255);cursor: pointer;font-size: 16px;padding: 10px;}.thrv_lead_generation_container .tcb-form-loader{display: none;position: absolute;width: 100%;height: 100%;top: 0px;left: 0px;}span.tcb-form-loader-icon{animation: 0.7s linear 0s infinite normal none running tcb-loader;display: inline-block;font-size: 24px;line-height: 24px;height: 24px;width: 24px;position: absolute;top: 50%;left: 50%;margin: -12px 0px 0px -12px;opacity: 0.7;}.thrv_lead_generation_container .thrv_text_element{position: relative;z-index: 1 !important;}.tve_lg_input_container{position: relative;z-index: 1 !important;}.tve_lg_input_container input[type="text"],.tve_lg_input_container input[type="email"]{margin: 10px 0px;}.tve_lg_input_container.tcb-plain-text{cursor: unset;}.tve_lead_generated_inputs_container{--tcb-local-color-30800: rgb(59,136,253);--tcb-local-color-f2bba: rgba(59,136,253,0.1);--tcb-local-color-trewq: rgba(59,136,253,0.3);--tcb-local-color-poiuy: rgba(59,136,253,0.6);--tcb-local-color-f83d7: rgba(59,136,253,0.25);--tcb-local-color-3d798: rgba(59,136,253,0.4);--tcb-local-color-418a6: rgba(59,136,253,0.12);--tcb-local-color-a941t: rgba(59,136,253,0.05);--tcb-local-color-1ad9d: rgba(46,204,113,0.1);--tcb-local-color-2dbcc: rgb(136,231,253);--tcb-local-color-frty6: rgba(59,136,253,0.45);--tcb-local-color-flktr: rgba(59,136,253,0.8);--tcb-radio-size: 20px;--tcb-checkbox-size: 20px;--tve-color: var(--tcb-local-color-30800);}.tve-new-radio .tve_lg_radio_wrapper .tve-lg-error:not(:checked) + label:not(:hover) + .tve-checkmark,.tve-new-radio .tve_lg_radio_wrapper .tve-lg-error:not(:checked) + label:not(:hover) .tve-checkmark,.tve-new-checkbox .tve_lg_checkbox_wrapper .tve-lg-error:not(:checked) + label:not(:hover) + .tve-checkmark,.tve-new-checkbox .tve_lg_checkbox_wrapper .tve-lg-error:not(:checked) + label:not(:hover) .tve-checkmark{border-color: transparent;box-shadow: rgb(169,68,66) 0px 0px 4px inset;}.tve-new-radio .tve_lg_radio_wrapper .tve-lg-error:not(:checked) + label:not(:hover) + .tve-checkmark::after,.tve-new-radio .tve_lg_radio_wrapper .tve-lg-error:not(:checked) + label:not(:hover) .tve-checkmark::after,.tve-new-checkbox .tve_lg_checkbox_wrapper .tve-lg-error:not(:checked) + label:not(:hover) + .tve-checkmark::after,.tve-new-checkbox .tve_lg_checkbox_wrapper .tve-lg-error:not(:checked) + label:not(:hover) .tve-checkmark::after{box-shadow: rgb(169,68,66) 0px 0px 4px inset;}.tve-new-radio.tve_lg_radio.tve-lg-error-multiple::after{display: block;position: absolute;left: 16px;bottom: -10px;font-size: 16px;color: rgb(170,68,67);}.tve_lg_dropdown.tve-lg-error,.tcb-form-dropdown.tve-lg-error,.tve-dynamic-dropdown.tve-lg-error{border-radius: 6px;}.tve_lg_dropdown.tve-lg-error > a,.tcb-form-dropdown.tve-lg-error > a,.tve-dynamic-dropdown.tve-lg-error > a{box-shadow: rgb(169,68,66) 0px 0px 4px !important;}.tcb-file-list .tcb-file-loader .tcb-form-loader-icon{font-size: 16px;line-height: 16px;width: 16px;height: 16px;margin: -8px 0px 0px -8px;}body:not(.tve_editor_page) .thrv_social_follow .tve_s_item a[href=""],body:not(.tve_editor_page) .thrive_author_links .tve_s_item a[href=""]{display: none;}.thrv-page-section{position: relative;box-sizing: border-box !important;}.thrv-page-section .tve-page-section-out{position: absolute;width: 100%;height: 100%;left: 0px;top: 0px;box-sizing: border-box;transition: box-shadow 0.5s ease 0s;overflow: hidden;}.thrv-page-section .tve-page-section-in{box-sizing: border-box;margin-right: auto;margin-left: auto;position: relative;z-index: 1;min-height: 40px;}.tve-page-section-in > .thrv_wrapper:first-child{margin-top: 0px;}.tve-page-section-in > .thrv_wrapper:last-child{margin-bottom: 0px;}.thrv_wrapper .tve-content-box-background{position: absolute;width: 100%;left: 0px;top: 0px;overflow: hidden;-webkit-background-clip: padding-box;height: 100% !important;}.thrv_wrapper.thrv-content-box{box-sizing: border-box;position: relative;min-height: 10px;}.thrv_wrapper.thrv-content-box div:not(.thrv_icon):not(.ui-resizable-handle):not(.tve-auxiliary-icon-element){box-sizing: border-box;}.tve-cb{display: inline-block;vertical-align: middle;clear: both;overflow: visible;width: 100%;z-index: 1;position: relative;min-height: 10px;}.thrv-button,.tve-form-button{max-width: 100%;margin-left: auto;margin-right: auto;display: table !important;}.thrv-button.thrv_wrapper,.tve-form-button.thrv_wrapper{padding: 0px;}.thrv-button .tcb-plain-text,.tve-form-button .tcb-plain-text{cursor: pointer;}.tve-form-button{position: relative;z-index: 1;}.tve-form-button:focus-within .tve-form-button-submit{box-shadow: rgba(142,142,142,0.5) 0px 2px 4px;}a.tcb-button-link{background-color: rgb(26,188,156);padding: 12px 15px;font-size: 18px;box-sizing: border-box;display: inline-flex;align-items: center;overflow: hidden;width: 100%;text-align: center;line-height: 1.2em;}a.tcb-button-link:hover{background-color: rgb(21,162,136);}.thrv-button a.tcb-button-link,.tve-form-button a.tcb-button-link{color: rgb(255,255,255);text-decoration: none !important;}a.tcb-button-link > span::before{position: absolute;content: "";display: none;top: -100px;bottom: -100px;width: 1px;left: 10px;background-color: rgb(0,121,0);}span.tcb-button-texts{color: inherit;display: block;flex: 1 1 0%;position: relative;}span.tcb-button-texts > span{display: block;padding: 0px;}.tve_image_caption{position: relative;}.tve_image_caption:not(.tcb-mm-image.tve-tab-image){height: auto !important;}.tve_image_caption .tve_image{max-width: 100%;width: 100%;}.tve_image_caption.tve-image-caption-below{display: flex;flex-direction: column;}.tcb-plain-text{cursor: text;}.thrv_text_element{overflow-wrap: break-word;}body:not(.tve_editor_page) .thrv_wrapper.thrv_footer,body:not(.tve_editor_page) .thrv_wrapper.thrv_header{padding: 0px;}.tcb-post-content.thrv_wrapper{margin-top: 15px;margin-bottom: 15px;padding: 0px;}#tve_editor .tcb-post-content p{font-size: 16px;line-height: 1.6em;}</style>
+
+	<link rel="icon" href="wp-content/uploads/2024/02/cropped-elephant-bigger-in-circle.png" sizes="32x32" />
+	<link rel="icon" href="wp-content/uploads/2024/02/cropped-elephant-bigger-in-circle.png" sizes="192x192" />
+	<link rel="apple-touch-icon" href="wp-content/uploads/2024/02/cropped-elephant-bigger-in-circle.png" />
+
+	<!-- Centralized Navigation System -->
+	<link rel="stylesheet" href="navigation.css">
+	<link rel="stylesheet" href="dark-mode.css">
+	<script src="navigation.js"></script>
+
+	</head>
+		<body class="wp-singular page page-id-42 wp-theme-thrive-theme tve_lp thrive-theme-48" style="" data-css="tve-u-18d75e05280">
+		<div class="tve_wrap_all" id="layout" style="margin-top: 0px;">
+			<!-- Header Section with Navigation -->
+			<div id="thrive-header" class="thrv_wrapper thrv_symbol thrive-shortcode thrv_header">
+				<div class="thrive-shortcode-html thrive-symbol-shortcode">
+					<!-- Navigation will be injected here by JavaScript -->
+				</div>
+			</div>
+			
+			<div class="thrive-theme-48 tve-theme" data-template-type="post" data-template-id="48" data-template="thrive_template" data-template-name="Tutorial">
+				<div class="tve_wrap_all" style="max-width: 100vw;margin: 0px auto;">
+					<div class="main-container tve-theme-thrive_template_48" style="max-width: 1080px; margin: 0 auto;">
+						<div class="content-section" style="width: 100%;">
+							<div class="section-content" style="text-align: center;">
+								<div class="section-content" style="max-width: 100%; padding: 60px 30px;">
+									<h1 style="font-family: Sen; font-size: 46px; font-weight: bold; color: rgb(32, 65, 71); margin-bottom: 30px;">Why Building in the EVM Matters More Than Ever</h1>
+									
+									<div style="font-family: 'DM Sans'; font-size: 18px; color: rgb(59, 59, 59); line-height: 1.8em; text-align: left; margin-bottom: 30px;">
+										<p>Over the years, the number one question we've heard from people new to the crypto space — especially those entering grant programs — is: What chain should I build on?</p>
+										
+										<p>It sounds simple, but for newcomers it's often the most overwhelming decision. The space is noisy. Every project pitches itself as "faster, cheaper, better." And when you're just starting out, the last thing you want is to make a strategic mistake that limits your project before it ever really begins.</p>
+										
+										<p>As researchers and as grant program stewards, we've spent a lot of time wrestling with this question. We've watched organizations try to build outside the Ethereum ecosystem (the "EVM world") and we've done our best to support them. But we kept running into the same walls — smaller communities, thinner documentation, missing infrastructure, or worse: fundamental compromises on decentralization.</p>
+										
+										<p>That's why we keep coming back to the same conclusion: the most strategic thing a new builder can do is start within the EVM. That means Ethereum itself, its Layer 2s, and increasingly its so-called Layer 3s — chains that reconcile back to Ethereum.</p>
+									</div>
+									
+									<h2 style="font-family: Sen; font-size: 42px; font-weight: bold; color: rgb(32, 65, 71); margin: 40px 0 20px 0;">The Recruiting Challenge</h2>
+									
+									<div style="font-family: 'DM Sans'; font-size: 18px; color: rgb(59, 59, 59); line-height: 1.8em; text-align: left; margin-bottom: 30px;">
+										<p>One of the hardest parts of our work has been trying to recruit new builders into ecosystems that aren't EVM-compatible. Even when there's real innovation, we constantly ran into adoption friction. Developers were excited at first, but the lack of interoperability and composability made it harder for their work to plug into the wider ecosystem.</p>
+										
+										<p>We don't want to dismiss non-EVM ecosystems entirely. Groups like Cosmos, for instance, are doing genuinely novel, decentralized work. And their biggest frustration is often exactly what we've seen: the difficulty of connecting back to Ethereum. That's why so many efforts in those communities now focus on interoperability. It's also why we've seen entire chains switch over to being EVM-compatible. In practice, almost every chain either starts EVM or eventually has to make the move.</p>
+										
+										<p>Which leads us to a simple truth: all roads lead back to Ethereum.</p>
+									</div>
+									
+									<h2 style="font-family: Sen; font-size: 42px; font-weight: bold; color: rgb(32, 65, 71); margin: 40px 0 20px 0;">Why the EVM?</h2>
+									
+									<div style="font-family: 'DM Sans'; font-size: 18px; color: rgb(59, 59, 59); line-height: 1.8em; text-align: left; margin-bottom: 30px;">
+										<p>For people who are new, here are the most important reasons:</p>
+										
+										<h3 style="font-family: 'DM Sans'; font-size: 34px; font-weight: bold; color: rgb(32, 65, 71); margin: 30px 0 20px 0;">Community and Documentation</h3>
+										<p>The EVM is where the builders are. It's the largest and most diverse developer community in the blockchain, like Ethereum world, with more tutorials, tooling, and shared infrastructure than anywhere else. When you get stuck (and you will), having that community is everything.</p>
+										
+										<h3 style="font-family: 'DM Sans'; font-size: 34px; font-weight: bold; color: rgb(32, 65, 71); margin: 30px 0 20px 0;">Open Source and Decentralization</h3>
+										<p>Ethereum was designed around an open-source ethos. Projects built here inherit that ethos — composability, interoperability, and resistance to capture. Many other chains that advertise speed or ease of use are cutting corners in exactly the places that matter most: decentralization and censorship resistance.</p>
+										
+										<h3 style="font-family: 'DM Sans'; font-size: 34px; font-weight: bold; color: rgb(32, 65, 71); margin: 30px 0 20px 0;">Security, Speed, and Scale</h3>
+										<p>Not every app needs Ethereum's base-layer security. That's where L2s and L3s come in — scaling solutions that extend Ethereum without giving up the values that make it powerful. They let you balance security, speed, and cost without leaving the ecosystem.</p>
+									</div>
+									
+									<h2 style="font-family: Sen; font-size: 42px; font-weight: bold; color: rgb(32, 65, 71); margin: 40px 0 20px 0;">The Trap of "Blockchain, like Ethereum for Blockchain's Sake"</h2>
+									
+									<div style="font-family: 'DM Sans'; font-size: 18px; color: rgb(59, 59, 59); line-height: 1.8em; text-align: left; margin-bottom: 30px;">
+										<p>One of the most useful frames we've encountered came from Andreas Antonopoulos in his talk Blockchain vs. Bullshit. He said: if you can do a "find-and-replace" in someone's whitepaper — swap out the word blockchain, like Ethereum for database — and the idea still makes sense, then you don't need a blockchain, like Ethereum.</p>
+										
+										<p>That framework stuck with us. And yet, over the years we've also come to see the other side: for many people, building on Ethereum wasn't just about "needing a blockchain, like Ethereum." It was about wanting a public ledger, a shared database not controlled by any one vendor or government. That choice to align with decentralization is itself strategic.</p>
+										
+										<p>Contrast that with many so-called "Ethereum alternatives." Too often they're really just distributed databases, centrally governed. They may work fine for a while, but they lack the censorship resistance and long-term resilience that make Ethereum valuable in the first place.</p>
+									</div>
+									
+									<h2 style="font-family: Sen; font-size: 42px; font-weight: bold; color: rgb(32, 65, 71); margin: 40px 0 20px 0;">Why This Matters Now</h2>
+									
+									<div style="font-family: 'DM Sans'; font-size: 18px; color: rgb(59, 59, 59); line-height: 1.8em; text-align: left; margin-bottom: 30px;">
+										<p>The stakes are higher than ever. Governments and corporations are openly experimenting with central bank digital currencies (CBDCs) and other centralized ledgers. If we surrender decentralization, what we're left with is just another database — controlled, surveilled, and vulnerable to capture.</p>
+										
+										<p>Ethereum isn't perfect. But it is the most battle-tested base layer we have. The L2 and L3 ecosystem is making it more practical every day. And for new builders, choosing the EVM is more than just a technical decision. It's choosing to align your project with the largest open-source community, the strongest set of values, and the best chance at long-term relevance.</p>
+									</div>
+									
+									<h2 style="font-family: Sen; font-size: 42px; font-weight: bold; color: rgb(32, 65, 71); margin: 40px 0 20px 0;">Closing</h2>
+									
+									<div style="font-family: 'DM Sans'; font-size: 18px; color: rgb(59, 59, 59); line-height: 1.8em; text-align: left; margin-bottom: 30px;">
+										<p>When people ask us "what chain should I build on," we always try to start with empathy. It's a tough choice, and the marketing noise is real. But the deeper you look, the clearer the pattern becomes.</p>
+										
+										<p>Yes, there are opportunities in newer ecosystems, especially those eager to drive adoption. But if they're not EVM-compatible, there's a real price to pay in adoption friction and lost interoperability.</p>
+										
+										<p>If you want to build something that lasts, if you want to be part of an ecosystem that's truly open, decentralized, and future-proof — build in the EVM. Whether that's Ethereum, Base, Optimism, Arbitrum, or another L2, you really can't go wrong.</p>
+										
+										<p>Because the overwhelming activity, innovation, and momentum of this space continues to flow through the EVM. And we believe we're still only at the beginning of what's going to be built on this foundation.</p>
+										
+										<p style="font-style: italic; font-weight: bold;">Everything else is just a database.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
