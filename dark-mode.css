@@ -339,6 +339,36 @@ select:focus {
     z-index: -1 !important;
 }
 
+/* Ethereum logo overlay on hero video - 3x bigger, 50% transparent, no background */
+.tcb-video-background-el::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 180px;
+    height: 180px;
+    background-image: url('ethereum-logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    opacity: 0.5;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Responsive sizing for mobile - 3x bigger, 50% transparent */
+@media (max-width: 768px) {
+    .tcb-video-background-el::after {
+        width: 120px;
+        height: 120px;
+        bottom: 15px;
+        right: 15px;
+        opacity: 0.5;
+        background-color: transparent;
+    }
+}
+
 /* Hero section should maintain full color and visibility */
 .tcb-video-background-parent .tcb-video-background-el,
 .tcb-video-background-parent .tve-page-section-out {
