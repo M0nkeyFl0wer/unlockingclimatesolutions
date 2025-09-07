@@ -85,3 +85,22 @@ body, html {
         color: #ffffff !important;
     }
 }
+
+/* Hide all social media links and follow buttons */
+.thrv_social_follow,
+.thrive_author_links,
+.tve_s_item,
+.thrv_social_default,
+.thrv_social_custom,
+div[class*="social"],
+a[href*="facebook"],
+a[href*="twitter"],
+a[href*="linkedin"],
+a[href*="instagram"],
+a[href*="youtube"],
+a[href*="tiktok"],
+.tcb-social-icon,
+.tcb-social-button {
+    display: none !important;
+    visibility: hidden !important;
+}
