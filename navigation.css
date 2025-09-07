@@ -154,7 +154,7 @@
 }
 
 .tcb-logo img {
-    max-height: 90px;
+    max-height: 60px;
     width: auto;
     display: block;
     border-radius: 50%;
@@ -329,11 +329,11 @@
     box-shadow: none;
 }
 
-/* Main Navigation Layout - Fixed to remove white box */
+/* Main Navigation Layout - Horizontal logo and menu to save space */
 .thrv_widget_menu.tve-custom-menu-upgrade.tcb-logo-split {
     display: flex !important;
     align-items: center !important;
-    padding: 15px 30px !important;
+    padding: 10px 30px !important;
     max-width: 1200px !important;
     margin: 0 auto !important;
     width: 100% !important;
@@ -342,6 +342,7 @@
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     box-shadow: none !important;
     position: relative !important;
+    min-height: 70px !important;
 }
 
 .tcb-logo-split .tcb-hamburger-logo {
@@ -351,14 +352,15 @@
     left: auto;
     transform: none;
     z-index: 1;
-    margin-right: auto;
+    margin-right: 30px;
 }
 
 .tcb-logo-split .tve-ham-wrap {
     order: 2;
     display: flex;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .tcb-logo-split .tve-m-trigger {
