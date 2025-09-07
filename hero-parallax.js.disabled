@@ -1,0 +1,225 @@
+// 🌬️ HERO PARALLAX EFFECT
+// Subtle parallax for wind turbine hero section
+
+class HeroParallax {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.setupHeroParallax();
+        this.setupScrollEffects();
+        this.setupEthereumLogoFloat();
+    }
+
+    setupHeroParallax() {
+        const heroVideo = document.querySelector('.tcb-video-background-el video');
+        const heroSection = document.querySelector('.tcb-video-background-el');
+        const heroContent = document.querySelector('.tve-page-section-in');
+        
+        if (!heroVideo || !heroSection) return;
+
+        let ticking = false;
+        
+        const updateParallax = () => {
+            const scrolled = window.pageYOffset;
+            const rect = heroSection.getBoundingClientRect();
+            
+            // Only apply parallax when hero is visible
+            if (rect.bottom >= 0) {
+                const speed = 0.5;
+                const videoSpeed = 0.3;
+                
+                // Parallax for video background (slower movement)
+                heroVideo.style.transform = `translate(-50%, -50%) translateY(${scrolled * videoSpeed}px)`;
+                
+                // Parallax for hero content (slightly faster)
+                if (heroContent) {
+                    heroContent.style.transform = `translateY(${scrolled * speed}px)`;
+                }
+                
+                // Fade out hero as it scrolls
+                const fadeStart = 0;
+                const fadeEnd = window.innerHeight;
+                const fadeDistance = fadeEnd - fadeStart;
+                const fadeProgress = Math.max(0, Math.min(1, (scrolled - fadeStart) / fadeDistance));
+                
+                heroSection.style.opacity = 1 - (fadeProgress * 0.7); // Don't fade completely
+                
+                // Scale effect for depth
+                const scaleAmount = 1 + (scrolled * 0.0002);
+                heroVideo.style.transform += ` scale(${scaleAmount})`;
+            }
+            
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    setupScrollEffects() {
+        // Add smooth reveal effects for content sections
+        const contentSections = document.querySelectorAll('.thrv-page-section:not(:first-child)');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.opacity = '1';
+                } else {
+                    entry.target.style.transform = 'translateY(30px)';
+                    entry.target.style.opacity = '0.7';
+                }
+            });
+        }, observerOptions);
+        
+        contentSections.forEach(section => {
+            section.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            section.style.transform = 'translateY(30px)';
+            section.style.opacity = '0.7';
+            observer.observe(section);
+        });
+    }
+
+    setupEthereumLogoFloat() {
+        // Add floating animation to Ethereum logo
+        const style = document.createElement('style');
+        style.textContent = `
+            .tcb-video-background-el::after {
+                animation: ethereumFloat 4s ease-in-out infinite;
+            }
+            
+            @keyframes ethereumFloat {
+                0%, 100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+            
+            /* Enhanced hero text effects */
+            .hero-title {
+                background: linear-gradient(135deg, #ffffff 0%, #06b6d4 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: heroGlow 3s ease-in-out infinite alternate;
+            }
+            
+            @keyframes heroGlow {
+                from {
+                    filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.3));
+                }
+                to {
+                    filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.5));
+                }
+            }
+            
+            /* Subtle wind effect for the hero */
+            .tcb-video-background-el {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .tcb-video-background-el::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(255, 255, 255, 0.03), 
+                    transparent
+                );
+                animation: windSweep 8s linear infinite;
+                pointer-events: none;
+                z-index: 1;
+            }
+            
+            @keyframes windSweep {
+                0% { left: -100%; }
+                100% { left: 100%; }
+            }
+            
+            /* Parallax layers for depth */
+            .hero-content-layer {
+                position: relative;
+                z-index: 2;
+            }
+            
+            /* Responsive parallax adjustments */
+            @media (max-width: 768px) {
+                .tcb-video-background-el::after {
+                    animation-duration: 6s;
+                }
+                
+                .tcb-video-background-el::before {
+                    animation-duration: 12s;
+                }
+            }
+            
+            @media (prefers-reduced-motion: reduce) {
+                .tcb-video-background-el::after,
+                .tcb-video-background-el::before,
+                .hero-title {
+                    animation: none;
+                }
+            }
+        `;
+        
+        document.head.appendChild(style);
+    }
+
+    // Add mouse movement parallax for extra interactivity
+    setupMouseParallax() {
+        const heroSection = document.querySelector('.tcb-video-background-el');
+        if (!heroSection) return;
+        
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+        });
+        
+        const animate = () => {
+            currentX += (mouseX - currentX) * 0.02;
+            currentY += (mouseY - currentY) * 0.02;
+            
+            heroSection.style.transform += ` translate(${currentX * 10}px, ${currentY * 5}px)`;
+            
+            requestAnimationFrame(animate);
+        };
+        
+        // Only enable on desktop for performance
+        if (window.innerWidth > 768) {
+            animate();
+        }
+    }
+}
+
+// Initialize hero parallax when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    new HeroParallax();
+});
+
+// Initialize immediately if DOM is already ready
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    new HeroParallax();
+}

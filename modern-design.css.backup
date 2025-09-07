@@ -1,0 +1,577 @@
+/* 🎨 MODERN DESIGN SYSTEM FOR UNLOCKING CLIMATE SOLUTIONS */
+/* Contemporary, clean, and professional styling */
+
+/* Import modern fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    /* 🎨 Enhanced Color Palette */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-tertiary: #1a1a1a;
+    --bg-glass: rgba(20, 20, 20, 0.8);
+    --bg-gradient-start: #0a0a0a;
+    --bg-gradient-end: #1a1a2e;
+    
+    --text-primary: #ffffff;
+    --text-secondary: #e4e4e7;
+    --text-muted: #a1a1aa;
+    --text-faded: #71717a;
+    
+    --accent-primary: #06b6d4;   /* Cyan */
+    --accent-secondary: #3b82f6; /* Blue */
+    --accent-success: #10b981;   /* Emerald */
+    --accent-warning: #f59e0b;   /* Amber */
+    --accent-error: #ef4444;     /* Red */
+    
+    --border-primary: rgba(255, 255, 255, 0.1);
+    --border-secondary: rgba(255, 255, 255, 0.05);
+    --border-accent: rgba(6, 182, 212, 0.3);
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.2);
+    
+    /* 📐 Modern Spacing System */
+    --space-xs: 0.25rem;   /* 4px */
+    --space-sm: 0.5rem;    /* 8px */
+    --space-md: 1rem;      /* 16px */
+    --space-lg: 1.5rem;    /* 24px */
+    --space-xl: 2rem;      /* 32px */
+    --space-2xl: 3rem;     /* 48px */
+    --space-3xl: 4rem;     /* 64px */
+    --space-4xl: 6rem;     /* 96px */
+    
+    /* 🔤 Typography Scale */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+    --text-5xl: 3rem;       /* 48px */
+    --text-6xl: 3.75rem;    /* 60px */
+    
+    --line-tight: 1.25;
+    --line-normal: 1.5;
+    --line-relaxed: 1.75;
+    
+    /* 🎭 Modern Border Radius */
+    --radius-sm: 0.25rem;   /* 4px */
+    --radius-md: 0.5rem;    /* 8px */
+    --radius-lg: 0.75rem;   /* 12px */
+    --radius-xl: 1rem;      /* 16px */
+    --radius-2xl: 1.5rem;   /* 24px */
+    --radius-full: 9999px;
+    
+    /* ⚡ Animation Variables */
+    --transition-fast: 150ms ease-out;
+    --transition-normal: 300ms ease-out;
+    --transition-slow: 500ms ease-out;
+    
+    --ease-in-out-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out-cubic: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-cubic: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* 🔧 Modern CSS Reset & Base - SELECTIVE RESET TO AVOID BREAKING LAYOUT */
+/* Removed aggressive reset that was breaking navigation and images */
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+}
+
+body {
+    font-family: var(--font-primary) !important;
+    font-size: var(--text-base) !important;
+    line-height: var(--line-normal) !important;
+    color: var(--text-primary) !important;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%) !important;
+    min-height: 100vh;
+    font-feature-settings: 'cv01', 'cv02', 'cv03', 'cv04';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 🔤 Modern Typography System */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary) !important;
+    font-weight: 600 !important;
+    line-height: var(--line-tight) !important;
+    color: var(--text-primary) !important;
+    margin: 0 !important;
+    letter-spacing: -0.025em;
+}
+
+h1 {
+    font-size: var(--text-5xl) !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--space-xl) !important;
+}
+
+h2 {
+    font-size: var(--text-4xl) !important;
+    margin-bottom: var(--space-lg) !important;
+}
+
+h3 {
+    font-size: var(--text-3xl) !important;
+    margin-bottom: var(--space-md) !important;
+}
+
+h4 {
+    font-size: var(--text-2xl) !important;
+    margin-bottom: var(--space-md) !important;
+}
+
+h5 {
+    font-size: var(--text-xl) !important;
+    margin-bottom: var(--space-sm) !important;
+}
+
+h6 {
+    font-size: var(--text-lg) !important;
+    margin-bottom: var(--space-sm) !important;
+}
+
+p, li, td, span, div {
+    color: var(--text-secondary) !important;
+    line-height: var(--line-normal) !important;
+    margin-bottom: var(--space-md);
+}
+
+/* 📏 Modern Layout & Spacing */
+.thrv_wrapper,
+.thrv-page-section,
+.landingpage-section {
+    padding: var(--space-2xl) var(--space-xl) !important;
+    margin: 0 !important;
+}
+
+.tve-page-section-in {
+    max-width: 1200px;
+    margin: 0 auto !important;
+    padding: 0 var(--space-lg);
+}
+
+/* 🎨 Glass Morphism Effects */
+.thrv-content-box,
+.tve-content-box-background {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--border-primary) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-lg) !important;
+    padding: var(--space-2xl) !important;
+    margin: var(--space-2xl) 0 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.thrv-content-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-accent), transparent);
+    pointer-events: none;
+}
+
+/* 🔗 Modern Links */
+a {
+    color: var(--accent-primary) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all var(--transition-fast) !important;
+    position: relative;
+    border-radius: var(--radius-sm);
+    padding: var(--space-xs) var(--space-sm);
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: all var(--transition-normal);
+    transform: translateX(-50%);
+    border-radius: var(--radius-full);
+}
+
+a:hover {
+    color: var(--text-primary) !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    transform: translateY(-1px);
+}
+
+a:hover::before {
+    width: 100%;
+}
+
+/* 🎯 Modern Buttons */
+.tcb-button-link,
+a.tcb-button-link,
+.tve-form-button a,
+button {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-md) var(--space-xl) !important;
+    font-family: var(--font-primary) !important;
+    font-size: var(--text-base) !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all var(--transition-normal) var(--ease-out-cubic) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--space-sm) !important;
+    text-decoration: none !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.tcb-button-link::before,
+a.tcb-button-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left var(--transition-slow);
+    pointer-events: none;
+}
+
+.tcb-button-link:hover,
+a.tcb-button-link:hover,
+.tve-form-button a:hover,
+button:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: var(--shadow-xl), var(--shadow-glow) !important;
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary)) !important;
+}
+
+.tcb-button-link:hover::before,
+a.tcb-button-link:hover::before {
+    left: 100%;
+}
+
+.tcb-button-link:active,
+a.tcb-button-link:active {
+    transform: translateY(0) scale(0.98) !important;
+}
+
+/* 📝 Modern Form Elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    background: var(--bg-tertiary) !important;
+    border: 2px solid var(--border-secondary) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-md) var(--space-lg) !important;
+    font-family: var(--font-primary) !important;
+    font-size: var(--text-base) !important;
+    color: var(--text-primary) !important;
+    transition: all var(--transition-normal) !important;
+    width: 100% !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted) !important;
+    font-weight: 400 !important;
+}
+
+/* 🖼️ Modern Images */
+.tve_image_caption,
+.tve_image {
+    border-radius: var(--radius-xl) !important;
+    overflow: hidden !important;
+    box-shadow: var(--shadow-lg) !important;
+    transition: all var(--transition-normal) !important;
+}
+
+.tve_image_caption:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-xl) !important;
+}
+
+/* 🎭 Modern Cards & Content Sections */
+.slideshow-container {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--border-primary) !important;
+    border-radius: var(--radius-2xl) !important;
+    padding: var(--space-2xl) !important;
+    margin: var(--space-2xl) 0 !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.slideshow-slide {
+    background: var(--bg-secondary) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+}
+
+/* 🎪 Modern Navigation Enhancement */
+.thrv_widget_menu {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--border-primary) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-radius: var(--radius-xl) !important;
+    margin: var(--space-lg) !important;
+    padding: var(--space-md) var(--space-lg) !important;
+}
+
+.thrv_widget_menu ul.tve_w_menu li > a:not(.tcb-logo) {
+    color: var(--text-secondary) !important;
+    padding: var(--space-sm) var(--space-md) !important;
+    border-radius: var(--radius-md) !important;
+    transition: all var(--transition-fast) !important;
+    font-weight: 500 !important;
+    position: relative !important;
+    text-shadow: none !important;
+}
+
+.thrv_widget_menu ul.tve_w_menu li > a:hover {
+    color: var(--accent-primary) !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* 📱 Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+    :root {
+        --space-xl: 1.5rem;
+        --space-2xl: 2rem;
+        --space-3xl: 2.5rem;
+    }
+    
+    h1 {
+        font-size: var(--text-4xl) !important;
+    }
+    
+    h2 {
+        font-size: var(--text-3xl) !important;
+    }
+    
+    .thrv_wrapper,
+    .thrv-page-section {
+        padding: var(--space-xl) var(--space-md) !important;
+    }
+    
+    .tve-page-section-in {
+        padding: 0 var(--space-md);
+    }
+    
+    .thrv_widget_menu {
+        margin: var(--space-sm) !important;
+        padding: var(--space-sm) var(--space-md) !important;
+        border-radius: var(--radius-lg) !important;
+    }
+}
+
+/* ⚡ Modern Animations & Micro-interactions */
+.thrv_wrapper {
+    animation: fadeInUp 0.8s var(--ease-out-cubic);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tve_image_caption {
+    animation: fadeInScale 0.8s var(--ease-out-cubic);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 🌟 Subtle Hover Effects for Interactive Elements */
+.thrv-content-box:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-xl) !important;
+    border-color: var(--border-accent) !important;
+}
+
+/* 🎨 Enhanced Video Background with Modern Overlay */
+.tcb-video-background-el {
+    border-radius: var(--radius-2xl) !important;
+    overflow: hidden !important;
+    position: relative;
+}
+
+.tcb-video-background-el::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(6, 182, 212, 0.05));
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 📊 Modern Progress Bars & Loading States */
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    animation: progress 2s infinite;
+}
+
+@keyframes progress {
+    to { left: 100%; }
+}
+
+/* 🎪 Modern Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: var(--radius-full);
+    border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+}
+
+/* 🎯 Focus States for Accessibility */
+*:focus-visible {
+    outline: 2px solid var(--accent-primary) !important;
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* 🌈 Modern Selection */
+::selection {
+    background: rgba(6, 182, 212, 0.3);
+    color: var(--text-primary);
+}
+
+/* 💫 Loading Animations */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 🎨 Utility Classes */
+.glass {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glow {
+    box-shadow: var(--shadow-glow) !important;
+}
+
+.elevated {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* 🌟 Final Touch: Modern Loading States */
+body.loading {
+    cursor: wait;
+}
+
+.fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all var(--transition-slow);
+}

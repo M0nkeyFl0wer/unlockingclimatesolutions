@@ -1,0 +1,365 @@
+// 🌟 MODERN INTERACTIONS & ANIMATIONS
+// Smooth, performant enhancements for Unlocking Climate Solutions
+
+class ModernInteractions {
+    constructor() {
+        this.init();
+        this.setupObservers();
+        this.setupSmoothScrolling();
+        this.setupParallaxEffects();
+        this.setupHoverEffects();
+        this.setupLoadingStates();
+    }
+
+    init() {
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.setupEnhancements());
+        } else {
+            this.setupEnhancements();
+        }
+    }
+
+    setupEnhancements() {
+        this.addModernClasses();
+        this.setupIntersectionAnimations();
+        this.setupButtonEffects();
+        this.setupImageLazyLoading();
+        this.setupFormEnhancements();
+    }
+
+    addModernClasses() {
+        // Add modern utility classes to existing elements
+        document.body.classList.add('modern-design');
+        
+        // Enhance content boxes
+        const contentBoxes = document.querySelectorAll('.thrv-content-box, .thrv_contentbox_shortcode');
+        contentBoxes.forEach(box => {
+            box.classList.add('glass', 'fade-enter');
+        });
+
+        // Enhance images
+        const images = document.querySelectorAll('.tve_image_caption, .tve_image');
+        images.forEach(img => {
+            img.classList.add('modern-image');
+        });
+    }
+
+    setupObservers() {
+        // Modern Intersection Observer for scroll animations
+        this.observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        this.intersectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-enter-active');
+                    entry.target.classList.remove('fade-enter');
+                }
+            });
+        }, this.observerOptions);
+    }
+
+    setupIntersectionAnimations() {
+        // Animate elements as they come into view
+        const animateElements = document.querySelectorAll(`
+            .thrv_wrapper,
+            .thrv-content-box,
+            .tve_image_caption,
+            .slideshow-container,
+            h1, h2, h3
+        `);
+
+        animateElements.forEach(el => {
+            el.classList.add('fade-enter');
+            this.intersectionObserver.observe(el);
+        });
+    }
+
+    setupSmoothScrolling() {
+        // Enhanced smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    }
+
+    setupParallaxEffects() {
+        // Subtle parallax for hero sections
+        const heroElements = document.querySelectorAll('.tcb-video-background-el, .landingpage-section');
+        
+        if (heroElements.length > 0) {
+            let ticking = false;
+            
+            const updateParallax = () => {
+                const scrollY = window.pageYOffset;
+                
+                heroElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const speed = 0.5;
+                    const yPos = -(scrollY * speed);
+                    el.style.transform = `translateY(${yPos}px)`;
+                });
+                
+                ticking = false;
+            };
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            });
+        }
+    }
+
+    setupButtonEffects() {
+        // Modern button interactions
+        const buttons = document.querySelectorAll(`
+            .tcb-button-link,
+            a.tcb-button-link,
+            .tve-form-button a,
+            button
+        `);
+
+        buttons.forEach(button => {
+            // Add ripple effect
+            button.addEventListener('click', (e) => {
+                this.createRippleEffect(e, button);
+            });
+
+            // Add magnetic effect on hover
+            button.addEventListener('mousemove', (e) => {
+                this.createMagneticEffect(e, button);
+            });
+
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'translateY(-2px) scale(1.02)';
+            });
+        });
+    }
+
+    createRippleEffect(e, element) {
+        const ripple = document.createElement('span');
+        const rect = element.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}px;
+            top: ${y}px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        `;
+        
+        element.style.position = 'relative';
+        element.style.overflow = 'hidden';
+        element.appendChild(ripple);
+        
+        ripple.addEventListener('animationend', () => {
+            ripple.remove();
+        });
+    }
+
+    createMagneticEffect(e, element) {
+        const rect = element.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        const intensity = 0.3;
+        const moveX = x * intensity;
+        const moveY = y * intensity;
+        
+        element.style.transform = `translateY(-2px) scale(1.02) translate(${moveX}px, ${moveY}px)`;
+    }
+
+    setupHoverEffects() {
+        // Enhanced hover effects for interactive elements
+        const hoverElements = document.querySelectorAll(`
+            .thrv-content-box,
+            .tve_image_caption,
+            .slideshow-container,
+            a:not(.tcb-button-link)
+        `);
+
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                element.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+        });
+    }
+
+    setupImageLazyLoading() {
+        // Modern lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    }
+
+    setupFormEnhancements() {
+        // Modern form interactions
+        const formInputs = document.querySelectorAll('input, textarea, select');
+        
+        formInputs.forEach(input => {
+            // Add focus animations
+            input.addEventListener('focus', () => {
+                input.parentElement?.classList.add('focused');
+            });
+
+            input.addEventListener('blur', () => {
+                input.parentElement?.classList.remove('focused');
+                if (input.value) {
+                    input.parentElement?.classList.add('has-value');
+                } else {
+                    input.parentElement?.classList.remove('has-value');
+                }
+            });
+
+            // Add typing effect
+            input.addEventListener('input', () => {
+                input.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    input.style.transform = '';
+                }, 150);
+            });
+        });
+    }
+
+    setupLoadingStates() {
+        // Modern loading states for dynamic content
+        const forms = document.querySelectorAll('form');
+        
+        forms.forEach(form => {
+            form.addEventListener('submit', () => {
+                const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.classList.add('loading');
+                    submitBtn.disabled = true;
+                    
+                    // Reset after 3 seconds if no response
+                    setTimeout(() => {
+                        submitBtn.classList.remove('loading');
+                        submitBtn.disabled = false;
+                    }, 3000);
+                }
+            });
+        });
+    }
+
+    // Utility function to debounce scroll events
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Add performance monitoring
+    measurePerformance() {
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                const navigation = performance.getEntriesByType('navigation')[0];
+                console.log('🚀 Page Load Performance:', {
+                    domContentLoaded: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
+                    loadComplete: navigation.loadEventEnd - navigation.loadEventStart
+                });
+            });
+        }
+    }
+}
+
+// CSS for ripple animation
+const rippleCSS = `
+    @keyframes ripple {
+        to {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+    
+    .loading {
+        position: relative;
+        pointer-events: none;
+    }
+    
+    .loading::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        margin: auto;
+        border: 2px solid transparent;
+        border-top-color: currentColor;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    
+    .focused {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.3));
+    }
+    
+    .modern-image {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .modern-image:hover {
+        transform: translateY(-4px) scale(1.02);
+    }
+    
+    .loaded {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`;
+
+// Inject CSS
+const style = document.createElement('style');
+style.textContent = rippleCSS;
+document.head.appendChild(style);
+
+// Initialize when DOM is ready
+new ModernInteractions();
+
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = ModernInteractions;
+}
