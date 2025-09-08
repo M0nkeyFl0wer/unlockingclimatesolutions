@@ -8,6 +8,17 @@
     opacity: 1 !important;
 }
 
+/* Specific fix for carbon accounting hero image */
+[data-css="tve-u-18dfd22fbc4"] {
+    min-height: 500px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background-size: cover !important;
+    background-position: 88% 50% !important;
+    background-repeat: no-repeat !important;
+}
+
 /* Specific fixes for common background image patterns */
 .tcb-styled-list-item[style*="background-image"],
 .tve_p_center[style*="background-image"],
