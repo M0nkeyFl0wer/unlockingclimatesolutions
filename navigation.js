@@ -7,15 +7,15 @@ const NavigationConfig = {
     
     // Logo configuration
     logo: {
-        src: 'wp-content/uploads/2023/10/elephant_that_needed_cropping.png',
+        src: './wp-content/uploads/2024/02/cropped-elephant-bigger-in-circle.png',
         alt: 'Unlocking Climate Solutions',
         href: 'index.html'
     },
     
-    // Main navigation menu items - all in one horizontal menu
+    // Main navigation menu items - clean horizontal menu
     menuItems: [
         {
-            label: 'Solutions',
+            label: 'Use Cases',
             href: '#',
             hasDropdown: true,
             submenu: [
@@ -55,215 +55,71 @@ const NavigationConfig = {
 // Function to generate the complete navigation HTML
 function generateNavigation() {
     return `
-    <div class="thrv_wrapper thrv_widget_menu tve-custom-menu-upgrade tve-menu-template-light-tmp-first tve-mobile-side-fullscreen tcb-local-vars-root da-fade tcb-logo-split tve-regular" data-tve-switch-icon="mobile" data-css="tve-u-178d4c6bb16">
-        <div class="thrive-shortcode-html thrive-symbol-shortcode">
-            <div class="tcb-hamburger-logo">
-                <a class="tcb-logo thrv_wrapper tve-dynamic-link" href="${NavigationConfig.logo.href}">
-                    <picture>
-                        <img src="${NavigationConfig.logo.src}" alt="${NavigationConfig.logo.alt}">
-                    </picture>
-                </a>
-            </div>
+    <nav style="background: rgba(0, 0, 0, 0.95); border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: sticky; top: 0; z-index: 1000; padding: 0.5rem 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; gap: 2rem;">
             
-            <!-- Mobile Menu Trigger -->
-            <a class="tve-m-trigger" href="#">
-                <div class="thrv_wrapper thrv_icon tcb-icon-open">
-                    <svg class="tcb-icon" viewBox="0 0 32 32">
-                        <path d="M4 10h24a2 2 0 000-4H4a2 2 0 000 4zM4 18h24a2 2 0 000-4H4a2 2 0 000 4zM4 26h24a2 2 0 000-4H4a2 2 0 000 4z"/>
-                    </svg>
-                </div>
-                <div class="thrv_wrapper thrv_icon tcb-icon-close" style="display: none;">
-                    <svg class="tcb-icon" viewBox="0 0 32 32">
-                        <path d="M25.313 8.563l-8.563 8.563 8.563 8.563-1.687 1.687-8.563-8.563-8.563 8.563-1.687-1.687 8.563-8.563-8.563-8.563 1.687-1.687 8.563 8.563 8.563-8.563z"/>
-                    </svg>
-                </div>
+            <!-- Logo -->
+            <a href="${NavigationConfig.logo.href}" style="text-decoration: none;">
+                <img src="${NavigationConfig.logo.src}" alt="${NavigationConfig.logo.alt}" 
+                     style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid rgba(59, 130, 246, 0.5); object-fit: cover; transition: all 0.3s ease;">
             </a>
             
-            <div class="tve-ham-wrap">
-                <!-- Main Navigation Menu -->
-                <ul id="main-menu" class="tve_w_menu tve_horizontal" data-iid="15">
-                    ${NavigationConfig.menuItems.map((item, index) => `
-                    <li class="menu-item menu-item-${index + 1} ${item.hasDropdown ? 'menu-item-has-children' : ''} lvl-0 tcb-local-vars-root tve_editable" data-id="${index + 1}">
-                        <a class="menu-item-${index + 1}-a" href="${item.href}">
-                            <span class="tve-disabled-text-inner">${item.label}</span>
-                            ${item.hasDropdown ? `
-                            <span class="tve-item-dropdown-trigger">
-                                <svg class="tcb-icon" viewBox="0 0 16 16">
-                                    <path d="M8 11L3 6h10z"/>
-                                </svg>
-                            </span>` : ''}
-                        </a>
-                        ${item.hasDropdown ? `
-                        <ul class="sub-menu menu-item-${index + 1}-ul tve_editable">
-                            ${item.submenu.map((subItem, subIndex) => `
-                            <li class="menu-item menu-item-${index + 1}-${subIndex + 1} lvl-1 tve_editable" data-id="${index + 1}-${subIndex + 1}">
-                                <a href="${subItem.href}">
-                                    <span class="tve-disabled-text-inner">${subItem.label}</span>
-                                </a>
-                            </li>`).join('')}
-                        </ul>` : ''}
-                    </li>`).join('')}
-                </ul>
-            </div>
+            <!-- Navigation Links -->
+            ${NavigationConfig.menuItems.map((item, index) => `
+                <div style="position: relative; display: inline-block;"
+                     onmouseover="if(this.querySelector('.dropdown-menu')) this.querySelector('.dropdown-menu').style.opacity='1', this.querySelector('.dropdown-menu').style.visibility='visible', this.querySelector('.dropdown-menu').style.transform='translateY(0)'"
+                     onmouseleave="if(this.querySelector('.dropdown-menu')) this.querySelector('.dropdown-menu').style.opacity='0', this.querySelector('.dropdown-menu').style.visibility='hidden', this.querySelector('.dropdown-menu').style.transform='translateY(-10px)'">
+                    <a href="${item.href}" 
+                       style="color: #ffffff; text-decoration: none; font-weight: 500; padding: 0.75rem 1rem; border-radius: 0.25rem; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif; display: inline-block; white-space: nowrap;"
+                       onmouseover="this.style.background='rgba(59, 130, 246, 0.1)'; this.style.color='#60a5fa';"
+                       onmouseout="this.style.background='transparent'; this.style.color='#ffffff';">
+                        ${item.label}${item.hasDropdown ? ' ▼' : ''}
+                    </a>
+                    ${item.hasDropdown ? `
+                    <div class="dropdown-menu" style="position: absolute; top: 100%; left: 0; background: rgba(17, 17, 17, 0.95); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.5rem; min-width: 220px; padding: 0.5rem 0; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); z-index: 1001;">
+                        ${item.submenu.map((subItem) => `
+                        <a href="${subItem.href}" 
+                           style="color: #e5e7eb; text-decoration: none; padding: 0.75rem 1rem; display: block; transition: all 0.3s ease; font-size: 0.95rem; white-space: nowrap;"
+                           onmouseover="this.style.background='rgba(59, 130, 246, 0.1)'; this.style.color='#60a5fa';"
+                           onmouseout="this.style.background='transparent'; this.style.color='#e5e7eb';">
+                            ${subItem.label}
+                        </a>`).join('')}
+                    </div>` : ''}
+                </div>
+            `).join('')}
+            
         </div>
-    </div>`;
+    </nav>
+`;
 }
 
 // Function to inject navigation into a page
 function injectNavigation() {
     // Wait for DOM to be ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(insertNavigationHTML, 100); // Small delay to ensure everything is loaded
-        });
+        document.addEventListener('DOMContentLoaded', insertNavigationHTML);
     } else {
         insertNavigationHTML();
     }
 }
 
 function insertNavigationHTML() {
-    // For this specific site, we need to find the header container and inject our navigation
+    // Find the header container and inject our navigation
     const headerContainer = document.getElementById('thrive-header');
     
     if (headerContainer) {
-        // Clear any existing navigation content
-        const existingNav = headerContainer.querySelector('.thrive-shortcode-html');
-        if (existingNav) {
-            // Replace the entire content
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = generateNavigation();
-            const newNav = tempDiv.firstElementChild;
-            
-            existingNav.innerHTML = '';
-            existingNav.appendChild(newNav);
-            
-            // Initialize mobile menu functionality
-            initializeMobileMenu();
-        } else {
-            // Create new navigation if none exists
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = generateNavigation();
-            const newNav = tempDiv.firstElementChild;
-            
-            headerContainer.innerHTML = '';
-            headerContainer.appendChild(newNav);
-            initializeMobileMenu();
-        }
+        // Replace the entire header content with our clean navigation
+        headerContainer.innerHTML = generateNavigation();
     } else {
         // Fallback: inject at the very top of body
         const body = document.body;
         if (body) {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = generateNavigation();
-            const newNav = tempDiv.firstElementChild;
-            
-            body.insertBefore(newNav, body.firstChild);
-            initializeMobileMenu();
+            body.insertAdjacentHTML('afterbegin', generateNavigation());
         }
     }
 }
 
-// Mobile menu functionality
-function initializeMobileMenu() {
-    const trigger = document.querySelector('.tve-m-trigger');
-    const hamWrap = document.querySelector('.tve-ham-wrap');
-    const openIcon = document.querySelector('.tcb-icon-open');
-    const closeIcon = document.querySelector('.tcb-icon-close');
-    
-    if (trigger && hamWrap) {
-        trigger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Toggle mobile menu
-            const isExpanded = hamWrap.classList.contains('tve-m-expanded');
-            
-            if (isExpanded) {
-                hamWrap.classList.remove('tve-m-expanded');
-                trigger.classList.remove('tve-triggered-icon');
-                openIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-                document.body.style.overflow = ''; // Re-enable scrolling
-            } else {
-                hamWrap.classList.add('tve-m-expanded');
-                trigger.classList.add('tve-triggered-icon');
-                openIcon.style.display = 'none';
-                closeIcon.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent body scroll when menu is open
-            }
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (hamWrap.classList.contains('tve-m-expanded')) {
-                if (!hamWrap.contains(e.target) && !trigger.contains(e.target)) {
-                    hamWrap.classList.remove('tve-m-expanded');
-                    trigger.classList.remove('tve-triggered-icon');
-                    openIcon.style.display = 'block';
-                    closeIcon.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
-            }
-        });
-        
-        // Handle ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && hamWrap.classList.contains('tve-m-expanded')) {
-                hamWrap.classList.remove('tve-m-expanded');
-                trigger.classList.remove('tve-triggered-icon');
-                openIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-    }
-    
-    // Handle dropdown menus
-    const dropdownItems = document.querySelectorAll('.menu-item-has-children');
-    dropdownItems.forEach(item => {
-        const link = item.querySelector('a');
-        const submenu = item.querySelector('.sub-menu');
-        
-        if (link && submenu) {
-            // Desktop hover behavior
-            item.addEventListener('mouseenter', function() {
-                if (window.innerWidth > 767) {
-                    submenu.style.visibility = 'visible';
-                    submenu.style.display = 'block';
-                }
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                if (window.innerWidth > 767) {
-                    submenu.style.visibility = 'hidden';
-                    submenu.style.display = 'none';
-                }
-            });
-            
-            // Mobile click behavior
-            link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 767) {
-                    e.preventDefault();
-                    const isExpanded = item.classList.contains('expand-children');
-                    
-                    // Close other dropdowns
-                    dropdownItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('expand-children');
-                        }
-                    });
-                    
-                    // Toggle current dropdown
-                    if (isExpanded) {
-                        item.classList.remove('expand-children');
-                    } else {
-                        item.classList.add('expand-children');
-                    }
-                }
-            });
-        }
-    });
-}
+// No mobile menu functionality needed for inline styles
 
 // Auto-initialize when script loads
 injectNavigation();

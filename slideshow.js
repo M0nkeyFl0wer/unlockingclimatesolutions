@@ -53,14 +53,7 @@ class Slideshow {
             if (e.key === 'ArrowRight') this.nextSlide();
         });
 
-        // Auto-advance slides every 10 seconds (optional)
-        this.autoAdvance = setInterval(() => this.nextSlide(), 10000);
-        
-        // Pause auto-advance on hover
-        this.container.addEventListener('mouseenter', () => clearInterval(this.autoAdvance));
-        this.container.addEventListener('mouseleave', () => {
-            this.autoAdvance = setInterval(() => this.nextSlide(), 10000);
-        });
+        // Auto-advance disabled - user controls navigation manually
     }
 
     updateSlide() {
@@ -115,35 +108,16 @@ const SLIDE_COLLECTIONS = {
         'wp-content/uploads/slideshows/carbon-accounting/16.jpg'
     ],
     'supply-chain': [
-        'wp-content/uploads/slideshows/supply-chain/1.jpg',
-        'wp-content/uploads/slideshows/supply-chain/2.jpg',
-        'wp-content/uploads/slideshows/supply-chain/3.jpg',
-        'wp-content/uploads/slideshows/supply-chain/4.jpg',
-        'wp-content/uploads/slideshows/supply-chain/5.jpg',
-        'wp-content/uploads/slideshows/supply-chain/6.jpg',
-        'wp-content/uploads/slideshows/supply-chain/7.jpg',
-        'wp-content/uploads/slideshows/supply-chain/8.jpg',
-        'wp-content/uploads/slideshows/supply-chain/9.jpg',
-        'wp-content/uploads/slideshows/supply-chain/10.jpg',
-        'wp-content/uploads/slideshows/supply-chain/11.jpg',
-        'wp-content/uploads/slideshows/supply-chain/12.jpg',
-        'wp-content/uploads/slideshows/supply-chain/13.jpg',
-        'wp-content/uploads/slideshows/supply-chain/14.jpg',
-        'wp-content/uploads/slideshows/supply-chain/15.jpg',
-        'wp-content/uploads/slideshows/supply-chain/16.jpg',
-        'wp-content/uploads/slideshows/supply-chain/17.jpg',
-        'wp-content/uploads/slideshows/supply-chain/18.jpg',
-        'wp-content/uploads/slideshows/supply-chain/19.jpg',
-        'wp-content/uploads/slideshows/supply-chain/20.jpg',
-        'wp-content/uploads/slideshows/supply-chain/21.jpg',
-        'wp-content/uploads/slideshows/supply-chain/22.jpg',
-        'wp-content/uploads/slideshows/supply-chain/23.jpg',
-        'wp-content/uploads/slideshows/supply-chain/24.jpg',
-        'wp-content/uploads/slideshows/supply-chain/25.jpg',
-        'wp-content/uploads/slideshows/supply-chain/26.jpg',
-        'wp-content/uploads/slideshows/supply-chain/27.jpg',
-        'wp-content/uploads/slideshows/supply-chain/28.jpg',
-        'wp-content/uploads/slideshows/supply-chain/29.jpg'
+        'wp-content/uploads/slideshows/supply-chain-full/1.jpg',
+        'wp-content/uploads/slideshows/supply-chain-full/2.jpg',
+        'wp-content/uploads/slideshows/supply-chain-full/3.jpg',
+        'wp-content/uploads/slideshows/supply-chain-full/4.jpg',
+        'wp-content/uploads/slideshows/supply-chain-full/5.jpg',
+        'wp-content/uploads/slideshows/supply-chain-full/6.jpg',
+        'wp-content/uploads/slideshows/supply-chain-full/7.jpg',
+        'wp-content/uploads/slideshows/supply-chain-full/8.jpg',
+        'wp-content/uploads/slideshows/supply-chain-full/9.jpg',
+        'wp-content/uploads/slideshows/supply-chain-full/10.jpg'
     ],
     'monitoring-reporting-verification': [
         'wp-content/uploads/slideshows/monitoring-reporting-verification/1.jpg',
@@ -182,9 +156,87 @@ const SLIDE_COLLECTIONS = {
         'wp-content/uploads/slideshows/deepdive/9.jpg'
     ],
     'renewable-energy': [
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/1.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/2.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/3.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/4.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/5.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/6.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/7.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/8.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/9.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/10.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/11.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/12.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/13.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/14.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/15.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/16.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/17.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/18.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/19.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/20.jpg',
+        'wp-content/uploads/slideshows/renewable-energy-community-correct/21.jpg'
+    ],
+    'supply-chain-hero': [
+        'wp-content/uploads/slideshows/t-shirt-presentation/1.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/2.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/3.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/4.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/5.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/6.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/7.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/8.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/9.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/10.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/11.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/12.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/13.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/14.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/15.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/16.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/17.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/18.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/19.jpg',
+        'wp-content/uploads/slideshows/t-shirt-presentation/20.jpg'
+    ],
+    'blockchain': [
         'wp-content/uploads/2023/11/1.jpg',
         'wp-content/uploads/2023/11/2.jpg',
-        'wp-content/uploads/2023/11/4-1.jpg'
+        'wp-content/uploads/2023/11/4-1.jpg',
+        'wp-content/uploads/2023/11/5.jpg',
+        'wp-content/uploads/2024/02/Scaling-from-one-company-to-another-3.png',
+        'wp-content/uploads/2024/02/Measuring-Reporting-and-Verifying-.png'
+    ],
+    'what-is-blockchain': [
+        'wp-content/uploads/slideshows/what-is-blockchain/1.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/2.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/3.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/4.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/5.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/6.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/7.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/8.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/9.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/10.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/11.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/12.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/13.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/14.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/15.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/16.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/17.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/18.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/19.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/20.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/21.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/22.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/23.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/24.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/25.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/26.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/27.jpg',
+        'wp-content/uploads/slideshows/what-is-blockchain/28.jpg'
     ]
 };
 
